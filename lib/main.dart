@@ -30,8 +30,8 @@ class _CounterAppState extends State<CounterApp> {
         builder: (BuildContext context) {
           return Expanded(
             child: AlertDialog(
-              title: Text('Counter Alert!'),
-              content: Text('Counter Value is 5!'),
+              title: const Text('Counter Alert!'),
+              content: const Text('Counter Value is 5!'),
               actions: [
                 TextButton(
                   onPressed: () {
@@ -48,6 +48,19 @@ class _CounterAppState extends State<CounterApp> {
   int count = 0;
   int increment() => count += 1;
   int decrement() => count -= 1;
+  void logicBox() {
+    if (count == 5) {
+      MyAlertDialog(context);
+    }
+    if (count == 10) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => SecondPage(),
+        ),
+      );
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,28 +91,39 @@ class _CounterAppState extends State<CounterApp> {
                   onPressed: () {
                     setState(() {
                       increment();
+                      logicBox();
                     });
                   },
-                  child: const Icon(Icons.add),
                   style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.green,
-                      padding: EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 2.0))),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 2.0)),
+                  child: const Icon(Icons.add)),
               ElevatedButton(
                 onPressed: () {
                   setState(() {
                     decrement();
+                    logicBox();
                   });
                 },
-                child: Icon(Icons.remove),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.red,
                 ),
+                child: Icon(Icons.remove),
               ),
             ],
           )
         ],
       ),
     );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  const SecondPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Text('Congratulations! You reached 10');
   }
 }
