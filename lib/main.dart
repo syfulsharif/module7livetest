@@ -56,7 +56,7 @@ class _CounterAppState extends State<CounterApp> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SecondPage(),
+          builder: (context) => const SecondPage(),
         ),
       );
     }
@@ -86,30 +86,37 @@ class _CounterAppState extends State<CounterApp> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
+
             children: [
-              ElevatedButton(
+              Expanded(
+              flex: 3,
+                child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        increment();
+                        logicBox();
+                      });
+                    },
+                    style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 2.0)),
+                    child: const Icon(Icons.add)),
+              ),
+              Expanded(
+                flex: 1,
+                child: ElevatedButton(
                   onPressed: () {
                     setState(() {
-                      increment();
+                      decrement();
                       logicBox();
                     });
                   },
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.green,
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 5.0, horizontal: 2.0)),
-                  child: const Icon(Icons.add)),
-              ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    decrement();
-                    logicBox();
-                  });
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.red,
+                    backgroundColor: Colors.red,
+                  ),
+                  child: const Icon(Icons.remove),
                 ),
-                child: Icon(Icons.remove),
               ),
             ],
           )
