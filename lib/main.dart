@@ -86,7 +86,6 @@ class _CounterAppState extends State<CounterApp> {
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
-
             children: [
               Expanded(
               flex: 3,
