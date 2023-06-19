@@ -2,15 +2,10 @@
 
 Module 7 Live Test
 
-## Getting Started
+## The Screenshot of the app is as follows:
+![lt1](https://github.com/syfulsharif/module7livetest/assets/2669892/67a199fb-7874-4f7b-9f18-6a2a64ffe42e)
 
-This project is a starting point for a Flutter application.
+![lt2](https://github.com/syfulsharif/module7livetest/assets/2669892/87b00dab-8c3c-4aa3-b012-c498aa57dd07)
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![lt3](https://github.com/syfulsharif/module7livetest/assets/2669892/23a75220-86d9-4e86-8354-3d91a826bb44)
