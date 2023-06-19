@@ -50,9 +50,30 @@ class _CounterAppState extends State<CounterApp> {
             style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ElevatedButton(onPressed: (){}, child: Icon(Icons.add)),
-              ElevatedButton(onPressed: (){}, child: Icon(Icons.remove)),
+              ElevatedButton(
+                  onPressed: () {
+                    setState(() {
+                      increment();
+                    });
+                  },
+                  child: const Icon(Icons.add),
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      padding: EdgeInsets.symmetric(
+                          vertical: 5.0, horizontal: 2.0))),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    decrement();
+                  });
+                },
+                child: Icon(Icons.remove),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.red,
+                ),
+              ),
             ],
           )
         ],
