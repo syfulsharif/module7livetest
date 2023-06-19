@@ -24,9 +24,31 @@ class CounterApp extends StatefulWidget {
 }
 
 class _CounterAppState extends State<CounterApp> {
+  MyAlertDialog(context) {
+    return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Expanded(
+            child: AlertDialog(
+              title: Text('Counter Alert!'),
+              content: Text('Counter Value is 5!'),
+              actions: [
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('Ok'),
+                ),
+              ],
+            ),
+          );
+        });
+  }
+
   int count = 0;
   int increment() => count += 1;
   int decrement() => count -= 1;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
