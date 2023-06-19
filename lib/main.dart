@@ -11,27 +11,22 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      home: CounterApp(),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+class CounterApp extends StatefulWidget {
+  const CounterApp({super.key});
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<CounterApp> createState() => _CounterAppState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _CounterAppState extends State<CounterApp> {
   int count = 0;
-  int incrementNumber() {
-    return count += 1;
-  }
-  int decrementNumber() {
-    return count -= 1;
-  }
-
+  int increment() => count += 1;
+  int decrement() => count -= 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,20 +34,29 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text('Counter App'),
         centerTitle: true,
       ),
-      body:  Center(
-        child: Text('Press Count $count'),
-
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
+            alignment: Alignment.center,
+            child: const Text(
+              'Counter Value:',
+              style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+            ),
+          ),
+          Text(
+            count.toString(),
+            style: const TextStyle(fontSize: 30.0, fontWeight: FontWeight.bold),
+          ),
+          Row(
+            children: [
+              ElevatedButton(onPressed: (){}, child: Icon(Icons.add)),
+              ElevatedButton(onPressed: (){}, child: Icon(Icons.remove)),
+            ],
+          )
+        ],
       ),
-
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(() {
-            incrementNumber();
-          });
-        },
-        child: const Icon(Icons.add),
-      ),
-
     );
   }
 }
