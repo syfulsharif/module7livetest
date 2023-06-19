@@ -124,6 +124,15 @@ class SecondPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Text('Congratulations! You reached 10');
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Second Page'),
+      ),
+      body: const Center(
+          child: Text(
+        'Congratulations! You reached 10!',
+        style: TextStyle(fontSize: 25.0),
+      )),
+    );
   }
 }
